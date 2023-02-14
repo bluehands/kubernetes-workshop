@@ -29,6 +29,12 @@ spec:
               value: '1000'
             - name: SUDO_PASSWORD
               value: ihavethepower
+          volumeMounts:
+            - mountPath: /config
+              name: config-data
+      volumes:
+        - name: config-data
+          emptyDir: {}
 ---
 apiVersion: v1
 kind: Service
