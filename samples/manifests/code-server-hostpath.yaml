@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: code-server
+spec:
+  selector:
+    matchLabels:
+      app: code-server
+  template:
+    metadata:
+      labels:
+        app: code-server
+    spec:
+      containers:
+        - name: code-server
+          image: lscr.io/linuxserver/code-server:latest
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8443
+          env:
+            - name: TZ
+              value: Europe/Berlin
+            - name: PUID
+              value: '1000'
+            - name: PGID
+              value: '1000'
+            - name: SUDO_PASSWORD
+              value: ihavethepower
+          volumeMounts:
+            - mountPath: /config
+              name: config-data
+      volumes:
+        - name: config-data
+          hostPath:
+            path: /run/desktop/mnt/host/c/config-data-on-host
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: code-server
+spec:
+  type: NodePort
+  selector:
+    app: code-server
+  ports:
+  - port: 8443
+    targetPort: 8443
+    nodePort: 30443
