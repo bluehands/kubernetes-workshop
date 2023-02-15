@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "ms-toolsai.jupyter",
-        "ms-kubernetes-tools.vscode-kubernetes-tools"
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-dotnettools.dotnet-interactive-vscode"
     ]
 }
