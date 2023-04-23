@@ -20,4 +20,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.Map("/", () => "Service is healthy.");
+
 app.Run();
