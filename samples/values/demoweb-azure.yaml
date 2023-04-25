@@ -1,0 +1,6 @@
+ingress:
+  className: azure-application-gateway
+  hosts:
+    - paths:
+        - path: /
+          pathType: ImplementationSpecific
