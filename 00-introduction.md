@@ -7,3 +7,4 @@
 ## Helpful Tools
 - [k9s](https://k9scli.io/topics/install/)
 - [freelens](https://freelensapp.github.io/)
+- [kubecolor](https://kubecolor.github.io/)
